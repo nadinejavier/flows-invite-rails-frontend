@@ -1,0 +1,7 @@
+<h2>
+  <% @invites.each do |invite| %>
+    <%= invite["message"] %>
+    <%= invite["recipient"] %>
+    <%= invite["status"] %>
+  <%end%>
+</h2>
