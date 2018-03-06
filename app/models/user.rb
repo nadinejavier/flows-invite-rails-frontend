@@ -1,9 +1,10 @@
 class User
-  attr_accessor :id, :email, :password_digest
+  attr_accessor :id, :email, :password, :authentication_token, :invites
   def initialize(input_hash)
     @id = input_hash["id"]
     @email = input_hash["email"]
     @password_digest = input_hash["password_digest"]
+    @invites = input_hash["invites"]
   end
 
  def self.find(id)
@@ -13,7 +14,7 @@ class User
 
  def self.all
   users = []
-  users_array = Unirest.get("http://localhost:3000/api/v1/invites.json").body
+  users_array = Unirest.get("http://localhost:3000/api/v1/users.json").body
   users_array.each do |user|
     users << User.new(user)
   end
