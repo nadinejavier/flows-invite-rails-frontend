@@ -1,5 +1,5 @@
 class Invite
-  attr_accessor :id, :user_id, :message, :recipient, :status
+  attr_accessor :id, :user_id, :message, :recipient, :status, :token, :user
 
   def initialize(input_hash)
     @id = input_hash["id"]
@@ -7,10 +7,14 @@ class Invite
     @message = input_hash["message"]
     @recipient = input_hash["recipient"]
     @status = input_hash["status"]
+    @token = input_hash["token"]
+    @user = input_hash["user"]
  end
 
- def self.find(id)
-  invite_hash = Unirest.get("http://localhost:3000/api/v1/invites/#{id}.json").body
+
+
+ def self.find_by(token)
+  invite_hash = Unirest.get("http://localhost:3000/api/v1/invites/#{token}.json").body
   Invite.new(invite_hash)
 end
 

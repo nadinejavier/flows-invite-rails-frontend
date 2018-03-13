@@ -10,8 +10,10 @@
   <br>
   <% @user.invites.each do |invite| %>
     <%=invite["message"]%><br>
-    <%=invite["recipient"]%><br>
-    <%=invite["status"]%><br><br>
+    <a href="/invites/<%=invite["token"]%>"><%=invite["recipient"]%></a><br>
+    <%=invite["status"]%>
+    <%=invite["token"]%>
+    <br><br>
   <%end%>
 </h5>
 

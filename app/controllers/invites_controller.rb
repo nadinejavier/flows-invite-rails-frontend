@@ -17,4 +17,8 @@ class InvitesController < ApplicationController
      @id = @invite["user_id"]
      redirect_to "/users/#{@id}"
   end
+
+  def show
+    @invite = Invite.find_by(params[:token])
+  end
 end
