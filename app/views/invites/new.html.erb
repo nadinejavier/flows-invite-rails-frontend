@@ -1,0 +1,14 @@
+<h1> Send a New Invite </h1>
+
+<h2> <%= form_tag "/invites" do %>
+    <%= label_tag :send_to %>
+    <%= text_field_tag :recipient %>
+    <br>
+    <%= label_tag :message %>
+    <%= text_field_tag :message %>
+    <br>
+
+    <%= submit_tag "Send" %>
+<% end %>
+</h2>
+

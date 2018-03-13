@@ -1,5 +1,5 @@
 class User
-  attr_accessor :id, :email, :password, :authentication_token, :invites
+  attr_accessor :id, :email, :password, :invites
   def initialize(input_hash)
     @id = input_hash["id"]
     @email = input_hash["email"]
@@ -8,7 +8,7 @@ class User
   end
 
  def self.find(id)
-  user_hash = Unirest.get("http://localhost:3000/api/v1/users/#{id}.json").body
+  user_hash = Unirest.get("http://localhost:3000/api/v1/users/#{id}").body
   User.new(user_hash)
  end
 
@@ -19,5 +19,6 @@ class User
     users << User.new(user)
   end
  end
+
 
 end

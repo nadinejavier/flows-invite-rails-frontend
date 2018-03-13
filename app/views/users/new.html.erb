@@ -3,11 +3,16 @@
 <h2> <%= form_tag "/users" do %>
     <%= label_tag :email %>
     <%= text_field_tag :email %>
-
+    <br>
     <%= label_tag :password %>
-    <%= password_field_tag :password %>>
+    <%= password_field_tag :password %>
+    <br>
+    <%= label_tag :confirm_password %>
+    <%= password_field_tag :password_confirmation %>
 
     <%= submit_tag "Sign up" %>
 <% end %>
 </h2>
+
+<button><a href="/login"> Or Log In Here </a></button>
 

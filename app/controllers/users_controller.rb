@@ -12,7 +12,8 @@ class UsersController < ApplicationController
       headers:{ 'Accept' => 'application/json' },
       parameters: {
       email: params[:email],
-      password: params[:password]}
+      password: params[:password],
+      password_confirmation: params[:password_confirmation]}
     ).body
     @id = @new_user["id"]
     redirect_to "/users/#{@id}"

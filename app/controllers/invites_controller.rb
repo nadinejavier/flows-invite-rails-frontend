@@ -3,5 +3,18 @@ class InvitesController < ApplicationController
     @invites = Invite.all
   end 
 
-  def 
+  def new
+  end
+
+  def create
+      @invite = Unirest.post("http://localhost:3000/api/v1/invites",
+      headers:{ 'Accept' => 'application/json' },
+      parameters: {
+      user_id: params[:id],
+      message: params[:message],
+      recipient: params[:recipient]}
+    ).body
+     @id = @invite["user_id"]
+     redirect_to "/users/#{@id}"
+  end
 end

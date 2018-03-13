@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :invites
   resources :users
-  get "/" => "users#show"
+  root "users#new"
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  post '/logout' => 'sessions#destroy'
 
 end

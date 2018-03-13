@@ -1,9 +1,9 @@
 class Invite
-  attr_accessor :id, :sender_id, :message, :recipient, :status
+  attr_accessor :id, :user_id, :message, :recipient, :status
 
   def initialize(input_hash)
     @id = input_hash["id"]
-    @sender_id = input_hash["sender_id"]
+    @user_id = input_hash["user_id"]
     @message = input_hash["message"]
     @recipient = input_hash["recipient"]
     @status = input_hash["status"]
